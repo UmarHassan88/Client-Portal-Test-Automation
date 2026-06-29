@@ -8,7 +8,7 @@ let currentPassword = 'HereWeGo@2026';
 let newPassword = currentPassword;
 let confirmPassword = newPassword;
 
-export class Accounts extends Helpers{
+export class AccountsProfile extends Helpers{
     
     constructor(page) {
         super(page);

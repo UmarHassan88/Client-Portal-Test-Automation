@@ -2,13 +2,21 @@
   "name": "client-portal-suite",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:list": "playwright test --list",
+    "test:install": "playwright install"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "E2E tests. If the Playwright VS Code/Cursor extension shows connect ETIMEDOUT on playwright.config.js, use the Node version in .nvmrc and update the Playwright extension (see microsoft/playwright#40308).",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "devDependencies": {
-    "@playwright/test": "^1.59.1",
+    "@faker-js/faker": "^10.4.0",
+    "@playwright/test": "^1.60.0",
     "@types/node": "^25.6.0"
   }
 }
