@@ -18,5 +18,8 @@
     "@faker-js/faker": "^10.4.0",
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.6.0"
+  },
+  "dependencies": {
+    "girlfriend": "^0.0.1"
   }
 }

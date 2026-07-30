@@ -7,7 +7,25 @@ export class Helpers {
 
 async uploadAttachment(page, locator){
     await locator.setInputFiles('C:\\Users\\umar\\Downloads\\Testpic.png');
+}
 
+/** Random future date as MM/DD/YYYY (matches MUI date placeholders). */
+randomCalendarDate(daysAheadMin = 1, daysAheadMax = 365) {
+    const daysAhead = Math.floor(Math.random() * (daysAheadMax - daysAheadMin + 1)) + daysAheadMin;
+    const date = new Date();
+    date.setDate(date.getDate() + daysAhead);
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    const yyyy = date.getFullYear();
+    return `${mm}/${dd}/${yyyy}`;
+}
+
+/** Fill MUI DateField Month/Day/Year spinbuttons with an MM/DD/YYYY string. */
+async fillMuiCalendarDate(monthSpinbutton, dateStr) {
+    const [mm, dd, yyyy] = dateStr.split('/');
+    await monthSpinbutton.click();
+    // MUI auto-advances sections as digits are typed — do not use fill()
+    await this.page.keyboard.type(`${mm}${dd}${yyyy}`, { delay: 40 });
 }
 
 async randomStringgenerator(page, locator){
@@ -20,7 +38,8 @@ async randomStringgenerator(page, locator){
 }
 
 async randomIntgenerator(page, locator){
-    const result = Math.floor(Math.random() * 100000000);
+    // Keep amounts in a realistic range for coin top-ups
+    const result = Math.floor(Math.random() * 99999) + 1;
     await locator.fill(result.toString());
 }
 
@@ -35,5 +54,10 @@ async selectfromDropdown(page, locator, value) {
         await page.keyboard.type(value, { delay: 40 });
         await page.keyboard.press('Enter');
     }
+}
+
+async mandatoryFieldValidation(page, btn, locator){
+    await btn.click();
+    await expect(locator).toHaveClass(/Mui-error/);
 }
 }

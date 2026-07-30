@@ -1,11 +1,11 @@
+import dns from "dns";
 import { defineConfig, devices } from "@playwright/test";
+
+dns.setDefaultResultOrder("ipv4first");
 
 export default defineConfig({
   testDir: "./tests",
-
-  // ADD THIS — tells Playwright to search all subdirectories recursively
-  testMatch: "**/*.spec.js", // <-- matches CompanyUsers.spec.js anywhere in /tests
-
+  testMatch: "**/*.spec.js",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -15,7 +15,6 @@ export default defineConfig({
     headless: false,
     trace: "on-first-retry",
   },
-
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
     { name: "firefox", use: { ...devices["Desktop Firefox"] } },
