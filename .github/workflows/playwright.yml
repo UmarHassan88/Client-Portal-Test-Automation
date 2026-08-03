@@ -38,6 +38,16 @@ jobs:
       if: always()
       run: |
         npx allure generate allure-results --clean --single-file -o allure-report
+
+    - name: Prepare Email Report
+      run: |
+        sed \
+        -e "s|{{ repository }}|${{ github.repository }}|g" \
+        -e "s|{{ branch }}|${{ github.ref_name }}|g" \
+        -e "s|{{ actor }}|${{ github.actor }}|g" \
+        -e "s|{{ workflow }}|${{ github.workflow }}|g" \
+        -e "s|{{ status }}|${{ job.status }}|g" \
+        ci/email-templates.html > /tmp/final.html   
     - name: Send Unit Smoke Test Report
       if: always()
       uses: dawidd6/action-send-mail@v3
@@ -53,7 +63,7 @@ jobs:
         cc: saif@aqaryint.com, laxmikant@aqaryint.com
         from: CI Notification <noreply@aqaryservices.com> 
 
-        html_body: file://ci/email-templates.html
+        html_body: file:///tmp/final.html
 
         attachments: |
           allure-report/index.html     
