@@ -46,13 +46,16 @@ jobs:
         ACTOR=$(echo "${{ github.actor }}" | sed 's/[\/&]/\\&/g')
         WORKFLOW=$(echo "${{ github.workflow }}" | sed 's/[\/&]/\\&/g')
         STATUS=$(echo "${{ job.status }}" | sed 's/[\/&]/\\&/g')
-
+        SHA=$(echo "${{ github.sha }}" | sed 's/[\/&]/\\&/g')
         sed \
         -e "s|{{ repository }}|${REPOSITORY}|g" \
         -e "s|{{ branch }}|${BRANCH}|g" \
         -e "s|{{ actor }}|${ACTOR}|g" \
         -e "s|{{ workflow }}|${WORKFLOW}|g" \
         -e "s|{{ status }}|${STATUS}|g" \
+        -e "s|{{ commit }}|${SHA}|g" \
+        -e "s|{{ timestamp }}|${TIMESTAMP}|g" \
+        -e "s|{{ github_run_url }}|${RUN_URL}|g" \
         ci/email-templates.html > /tmp/final.html
     - name: Send Unit Smoke Test Report
       if: always()
