@@ -38,7 +38,7 @@ jobs:
       - name: Generate Allure HTML Report
         if: always()
         run: |
-          npx allure generate allure-results --clean --single-file -o allure-report
+          npm run allure:generate
 
       - uses: actions/upload-artifact@v4
         if: always()
