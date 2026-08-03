@@ -41,13 +41,19 @@ jobs:
 
     - name: Prepare Email Report
       run: |
+        REPOSITORY=$(echo "${{ github.repository }}" | sed 's/[\/&]/\\&/g')
+        BRANCH=$(echo "${{ github.ref_name }}" | sed 's/[\/&]/\\&/g')
+        ACTOR=$(echo "${{ github.actor }}" | sed 's/[\/&]/\\&/g')
+        WORKFLOW=$(echo "${{ github.workflow }}" | sed 's/[\/&]/\\&/g')
+        STATUS=$(echo "${{ job.status }}" | sed 's/[\/&]/\\&/g')
+
         sed \
-        -e "s|{{ repository }}|${{ github.repository }}|g" \
-        -e "s|{{ branch }}|${{ github.ref_name }}|g" \
-        -e "s|{{ actor }}|${{ github.actor }}|g" \
-        -e "s|{{ workflow }}|${{ github.workflow }}|g" \
-        -e "s|{{ status }}|${{ job.status }}|g" \
-        ci/email-templates.html > /tmp/final.html   
+        -e "s|{{ repository }}|${REPOSITORY}|g" \
+        -e "s|{{ branch }}|${BRANCH}|g" \
+        -e "s|{{ actor }}|${ACTOR}|g" \
+        -e "s|{{ workflow }}|${WORKFLOW}|g" \
+        -e "s|{{ status }}|${STATUS}|g" \
+        ci/email-templates.html > /tmp/final.html
     - name: Send Unit Smoke Test Report
       if: always()
       uses: dawidd6/action-send-mail@v3
