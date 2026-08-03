@@ -53,7 +53,7 @@ jobs:
         cc: saif@aqaryint.com, laxmikant@aqaryint.com
         from: CI Automation 
 
-        html_body: file://ci/email-template.html
+        html_body: file://ci/email-templates.html
 
         attachments: |
           allure-report/index.html     
