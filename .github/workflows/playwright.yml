@@ -39,25 +39,28 @@ jobs:
       run: |
         npx allure generate allure-results --clean --single-file -o allure-report
 
-    - name: Prepare Email Report
+    - name: Generate Unit Test Email HTML
+      if: always()
       run: |
-        REPOSITORY=$(echo "${{ github.repository }}" | sed 's/[\/&]/\\&/g')
-        BRANCH=$(echo "${{ github.ref_name }}" | sed 's/[\/&]/\\&/g')
-        ACTOR=$(echo "${{ github.actor }}" | sed 's/[\/&]/\\&/g')
-        WORKFLOW=$(echo "${{ github.workflow }}" | sed 's/[\/&]/\\&/g')
-        STATUS=$(echo "${{ job.status }}" | sed 's/[\/&]/\\&/g')
-        SHA=$(echo "${{ github.sha }}" | sed 's/[\/&]/\\&/g')
-        sed \
-        -e "s|{{ repository }}|${REPOSITORY}|g" \
-        -e "s|{{ branch }}|${BRANCH}|g" \
-        -e "s|{{ actor }}|${ACTOR}|g" \
-        -e "s|{{ workflow }}|${WORKFLOW}|g" \
-        -e "s|{{ status }}|${STATUS}|g" \
-        -e "s|{{ commit }}|${SHA}|g" \
-        -e "s|{{ timestamp }}|${TIMESTAMP}|g" \
-        -e "s|{{ github_run_url }}|${RUN_URL}|g" \
-        ci/email-templates.html > /tmp/final.html
-    - name: Send Unit Smoke Test Report
+        if [ "${{ job.status }}" = "success" ]; then
+        STATUS="🟢 SUCCESS"
+        else
+        STATUS="🔴 FAILED"
+        fi
+
+        LOG_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+
+          sed \
+          -e "s|{{ STATUS }}|${STATUS}|g" \
+          -e "s|{{ REPO_NAME }}|${{ github.repository }}|g" \
+          -e "s|{{ BRANCH }}|${{ github.ref_name }}|g" \
+          -e "s|{{ COMMIT }}|${{ github.sha }}|g" \
+          -e "s|{{ ACTOR }}|${{ github.actor }}|g" \
+          -e "s|{{ RUN_URL }}|${LOG_URL}|g" \
+          ci/email-templates.html > /tmp/final.html
+          
+    - name: Send Unit Test Report
       if: always()
       uses: dawidd6/action-send-mail@v3
       with:
@@ -65,16 +68,11 @@ jobs:
         server_port: 587
         username: apikey
         password: ${{ secrets.SENDGRID_API_KEY }}
-
-        subject: "🧪 Unit & Smoke Test Report | ${{ github.repository }} | ${{ job.status }}"
-
+        subject: "🧪 PlayWright Unit Smoke Test Report - ${{ github.repository }}"
         to: qa@aqaryint.com
-        cc: saif@aqaryint.com, laxmikant@aqaryint.com
-        from: CI Notification <noreply@aqaryservices.com> 
-
+        cc: saif@aqaryint.com,laxmikant@aqaryint.com
+        from: CI Notification <noreply@aqaryservices.com>
         html_body: file:///tmp/final.html
-
-        attachments: |
-          allure-report/index.html     
+        attachments: allure-report/index.html     
         
         
