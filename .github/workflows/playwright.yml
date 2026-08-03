@@ -39,22 +39,7 @@ jobs:
         if: always()
         run: |
           npm run allure:generate
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: allure-report
-          path: allure-report
-          retention-days: 30
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report
-          retention-days: 30
-
-      - name: Generate Unit Test Email HTML
+      - name: Generate Unit Smoke Test Email HTML
         if: always()
         run: |
           if [ "${{ job.status }}" = "success" ]; then
@@ -74,7 +59,7 @@ jobs:
             -e "s|{{ RUN_URL }}|${LOG_URL}|g" \
             ci/email-templates.html > /tmp/final.html
 
-      - name: Send Unit Test Report
+      - name: Send Unit Smoke Test Report
         if: always()
         uses: dawidd6/action-send-mail@v3
         with:
