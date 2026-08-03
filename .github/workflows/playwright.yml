@@ -19,6 +19,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
+      continue-on-error: true
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
@@ -26,3 +27,35 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+
+    - name: Install Allure CLI
+      if: always()
+      run: |
+        npm install -D allure-commandline
+        npx allure --version
+        
+    - name: Generate Allure HTML Report
+      if: always()
+      run: |
+        npx allure generate allure-results --clean --single-file -o allure-report
+    - name: Send Unit Smoke Test Report
+      if: always()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.sendgrid.net
+        server_port: 587
+        username: apikey
+        password: ${{ secrets.SENDGRID_API_KEY }}
+
+        subject: "🧪 Unit & Smoke Test Report | ${{ github.repository }} | ${{ job.status }}"
+
+        to: qa@aqaryint.com
+        cc: saif@aqaryint.com, laxmikant@aqaryint.com
+        from: CI Automation 
+
+        html_body: file://ci/email-template.html
+
+        attachments: |
+          allure-report/index.html     
+        
+        

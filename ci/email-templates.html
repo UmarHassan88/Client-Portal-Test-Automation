@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<body style="margin:0;background:#f5f7fa;font-family:Segoe UI,Arial,sans-serif;">
+
+<table width="100%" cellpadding="0" cellspacing="0" style="padding:30px;">
+<tr>
+<td align="center">
+
+<table width="650" style="background:#ffffff;border-radius:12px;overflow:hidden;">
+
+<tr>
+<td style="background:#0f172a;padding:25px;text-align:center;">
+<h1 style="color:white;margin:0;">
+🧪 Unit & Smoke Test Report
+</h1>
+
+<p style="color:#cbd5e1;">
+Automated CI Validation Report
+</p>
+
+</td>
+</tr>
+
+
+<tr>
+<td style="padding:30px;">
+
+<h2>Execution Summary</h2>
+
+<table width="100%" cellpadding="10"
+style="border-collapse:collapse;font-size:14px;">
+
+<tr>
+<td style="background:#f8fafc;">Repository</td>
+<td><b>${{ github.repository }}</b></td>
+</tr>
+
+<tr>
+<td style="background:#f8fafc;">Test Type</td>
+<td><b>Unit Test + Smoke Test</b></td>
+</tr>
+
+
+<tr>
+<td style="background:#f8fafc;">Branch</td>
+<td>${{ github.ref_name }}</td>
+</tr>
+
+
+<tr>
+<td style="background:#f8fafc;">Triggered By</td>
+<td>${{ github.actor }}</td>
+</tr>
+
+
+<tr>
+<td style="background:#f8fafc;">Workflow</td>
+<td>${{ github.workflow }}</td>
+</tr>
+
+
+<tr>
+<td style="background:#f8fafc;">Status</td>
+<td>
+<b>${{ job.status }}</b>
+</td>
+</tr>
+
+</table>
+
+
+<br>
+
+
+<div style="
+background:#eff6ff;
+padding:20px;
+border-radius:8px;">
+
+<h3>
+📊 Allure Report Generated
+</h3>
+
+<p>
+Detailed report includes:
+</p>
+
+<ul>
+<li>Test execution summary</li>
+<li>Passed / Failed test cases</li>
+<li>Error logs</li>
+<li>Execution timeline</li>
+</ul>
+
+</div>
+
+
+<br>
+
+<p>
+Please find the attached Allure HTML report.
+</p>
+
+
+</td>
+</tr>
+
+
+<tr>
+<td style="
+background:#020617;
+padding:20px;
+text-align:center;
+color:#94a3b8;
+font-size:12px;">
+
+Generated automatically by GitHub Actions CI/CD
+
+</td>
+</tr>
+
+
+</table>
+
+</td>
+</tr>
+</table>
+
+
+</body>
+</html>
