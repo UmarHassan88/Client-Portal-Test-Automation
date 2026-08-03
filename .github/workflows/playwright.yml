@@ -51,7 +51,7 @@ jobs:
 
         to: qa@aqaryint.com
         cc: saif@aqaryint.com, laxmikant@aqaryint.com
-        from: CI Automation 
+        from: CI Notification <noreply@aqaryservices.com> 
 
         html_body: file://ci/email-templates.html
 
