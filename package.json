@@ -5,7 +5,9 @@
   "scripts": {
     "test": "playwright test",
     "test:list": "playwright test --list",
-    "test:install": "playwright install"
+    "test:install": "playwright install",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +19,9 @@
   "devDependencies": {
     "@faker-js/faker": "^10.4.0",
     "@playwright/test": "^1.60.0",
-    "@types/node": "^25.6.0"
+    "@types/node": "^25.6.0",
+    "allure-commandline": "^2.43.0",
+    "allure-playwright": "^3.10.2"
   },
   "dependencies": {
     "girlfriend": "^0.0.1"

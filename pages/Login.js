@@ -4,6 +4,7 @@ export class Login {
   constructor(page) {
     this.page = page;
     this.url = "http://192.168.1.203:3456/en/auth/login";
+    
     this.usernameInput = page.getByRole("textbox", {
       name: "admin@aqaryint.com",
     });

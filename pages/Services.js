@@ -44,7 +44,6 @@ export class Services extends Helpers {
 
     async verifyService(){
         await expect(this.page.getByText(this.summaryInput)).toBeVisible();
-        console.log("The added service is verified successfully having the summary as ", this.summaryInput);
-        
+        console.log("The added service is verified successfully having the summary as ", this.summaryInput);    
     }
 }

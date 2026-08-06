@@ -67,7 +67,7 @@ export class CompanyUsers extends Helpers {
         await this.email.fill(faker.internet.email());
         await this.randomIntgenerator(this.page, this.extension);
         await this.randomIntgenerator(this.page, this.landline);
-        await this.randomIntgenerator(this.page, this.mobile);
+        await this.mobile.fill('23323223');
         await this.randomIntgenerator(this.page, this.whatsapp);
         await this.uploadAttachment(this.page, this.changeCover);
         await this.uploadAttachment(this.page, this.changePhoto);
