@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Playwright Client Dashboard Test Report</title>
+</head>
+
+<body style="font-family: Arial, sans-serif;">
+
+<h2>🧪 Playwright Unit Smoke Test Report</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <td><b>Status</b></td>
+        <td>{{ STATUS }}</td>
+    </tr>
+
+    <tr>
+        <td><b>Repository</b></td>
+        <td>{{ REPO_NAME }}</td>
+    </tr>
+
+    <tr>
+        <td><b>Branch</b></td>
+        <td>{{ BRANCH }}</td>
+    </tr>
+
+    <tr>
+        <td><b>Commit</b></td>
+        <td>{{ COMMIT }}</td>
+    </tr>
+
+    <tr>
+        <td><b>Triggered By</b></td>
+        <td>{{ ACTOR }}</td>
+    </tr>
+
+    <tr>
+        <td><b>Workflow URL</b></td>
+        <td>
+            <a href="{{ RUN_URL }}">
+                View Run
+            </a>
+        </td>
+    </tr>
+</table>
+
+<br>
+
+<p>
+Please check the attached Allure report for detailed information.
+</p>
+
+<p>
+Regards,<br>
+CI/CD Pipeline
+</p>
+
+</body>
+</html>

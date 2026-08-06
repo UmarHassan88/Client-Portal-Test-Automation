@@ -5,9 +5,15 @@
   "scripts": {
     "test": "playwright test",
     "test:list": "playwright test --list",
+<<<<<<< HEAD
     "test:install": "playwright install",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report"
+=======
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "test:install": "playwright install"
+>>>>>>> eb0d37d0aab2f84765779775f17adb851b0c2de6
   },
   "keywords": [],
   "author": "",
@@ -18,12 +24,17 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^10.4.0",
+<<<<<<< HEAD
     "@playwright/test": "^1.60.0",
+=======
+    "@playwright/test": "^1.62.1",
+>>>>>>> eb0d37d0aab2f84765779775f17adb851b0c2de6
     "@types/node": "^25.6.0",
     "allure-commandline": "^2.43.0",
     "allure-playwright": "^3.10.2"
   },
   "dependencies": {
+    "faker": "^6.6.6",
     "girlfriend": "^0.0.1"
   }
 }
