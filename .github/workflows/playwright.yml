@@ -32,7 +32,7 @@ jobs:
 
       - name: Run Playwright Tests
         continue-on-error: true
-        run: npx playwright test tests/Login
+        run: npx playwright test
    
       - name: Generate Allure HTML Report
         if: always()
