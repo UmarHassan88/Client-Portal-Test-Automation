@@ -9,7 +9,8 @@ on:
 
 jobs:
   test:
-    runs-on: aqlocalprod
+    runs-on: ubuntu-latest
+    environment: local
 
     steps:
       - uses: actions/checkout@v4
