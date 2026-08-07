@@ -77,3 +77,18 @@ jobs:
           html_body: file:///tmp/final.html
           attachments: |
             allure-report.zip
+
+      - name: Send Report
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.sendgrid.net
+          server_port: 587
+          username: apikey
+          password: ${{ secrets.SENDGRID_API_KEY }}
+          subject: "🧪 Playwright Unit Smoke Test Report - ${{ github.repository }}"
+          to: qa@aqaryint.com
+          cc: saif@aqaryint.com,laxmikant@aqaryint.com
+          from: CI Notification <noreply@aqaryservices.com>
+          html_body: file:///tmp/final.html
+          attachments: allure-report.zip
