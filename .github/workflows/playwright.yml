@@ -27,7 +27,7 @@ jobs:
           npm list allure-playwright || true
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install
 
       - name: Run Playwright Tests
         continue-on-error: true
@@ -69,7 +69,7 @@ jobs:
           server_address: smtp.sendgrid.net
           server_port: 587
           username: apikey
-          password: ${secrets.SENDGRID_API_KEY}
+          password: ${{ secrets.SENDGRID_API_KEY }}
           subject: "🧪 Playwright Unit Smoke Test Report - ${{ github.repository }}"
           to: qa@aqaryint.com
           cc: saif@aqaryint.com,laxmikant@aqaryint.com
