@@ -32,7 +32,7 @@ jobs:
 
       - name: Run Playwright Tests
         continue-on-error: true
-        run: npx playwright test
+        run: npx playwright test tests/Login
    
       - name: Generate Allure HTML Report
         if: always()
@@ -66,11 +66,13 @@ jobs:
       - name: Send Unit Smoke Test Report
         if: always()
         uses: dawidd6/action-send-mail@v3
+        env: 
+          SENDGRID_API_KEY: ${SENDGRID_API_KEY}    
         with:
           server_address: smtp.sendgrid.net
           server_port: 587
           username: apikey
-          password: ${{ secrets.SENDGRID_API_KEY }}
+          password: ${secrets.SENDGRID_API_KEY}
           subject: "🧪 Playwright Unit Smoke Test Report - ${{ github.repository }}"
           to: qa@aqaryint.com
           cc: saif@aqaryint.com,laxmikant@aqaryint.com

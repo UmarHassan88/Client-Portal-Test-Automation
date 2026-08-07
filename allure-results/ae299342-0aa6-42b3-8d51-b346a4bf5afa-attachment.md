@@ -1,0 +1,411 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Listing\Services\ManageService.spec.js >> Manage Service
+- Location: tests\Listing\Services\ManageService.spec.js:4:5
+
+# Error details
+
+```
+Error: ENOENT: no such file or directory, stat 'C:\Users\umar\Downloads\Testpic.png'
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link [ref=e6] [cursor=pointer]:
+          - /url: /dashboard/account/me
+        - button [ref=e9] [cursor=pointer]
+      - paragraph [ref=e12]: Management Platform
+      - generic [ref=e13]:
+        - navigation [ref=e14]:
+          - button [ref=e15]:
+            - generic [ref=e22]: Main Menu
+        - separator [ref=e25]
+        - navigation [ref=e26]:
+          - button [ref=e27]:
+            - generic [ref=e33]: Listing
+          - link [ref=e39] [cursor=pointer]:
+            - /url: /dashboard/listing/property
+            - button [ref=e41]:
+              - generic [ref=e51]: Property
+          - link [ref=e57] [cursor=pointer]:
+            - /url: /dashboard/listing/unit
+            - button [ref=e59]:
+              - generic [ref=e63]: Unit
+          - link [ref=e69] [cursor=pointer]:
+            - /url: /dashboard/listing/services
+            - button [ref=e71]:
+              - generic [ref=e75]: Services
+          - link [ref=e81] [cursor=pointer]:
+            - /url: /dashboard/listing/ads
+            - button [ref=e83]:
+              - generic [ref=e87]: Ads
+          - link [ref=e93] [cursor=pointer]:
+            - /url: /dashboard/listing/marketing/notifications
+            - button [ref=e95]:
+              - generic [ref=e99]: Marketing
+          - link [ref=e105] [cursor=pointer]:
+            - /url: /dashboard/listing/requests
+            - button [ref=e107]:
+              - generic [ref=e116]: Listing Requests
+          - link [ref=e122] [cursor=pointer]:
+            - /url: /dashboard/listing/apikeys
+            - button [ref=e124]:
+              - generic [ref=e128]: Api Keys & Webhooks
+        - separator [ref=e131]
+        - navigation [ref=e132]:
+          - button [ref=e133]:
+            - generic [ref=e138]: Area
+        - separator [ref=e141]
+        - navigation [ref=e142]:
+          - button [ref=e143]:
+            - generic [ref=e148]: Blogs
+        - separator [ref=e151]
+        - navigation [ref=e152]:
+          - button [ref=e153]:
+            - generic [ref=e159]: Profiles
+        - separator [ref=e162]
+        - navigation [ref=e163]:
+          - button [ref=e164]:
+            - generic [ref=e172]: Admin
+        - separator [ref=e175]
+        - navigation [ref=e176]:
+          - button [ref=e177]:
+            - generic [ref=e181]: System Health
+        - separator [ref=e184]
+      - button [ref=e185] [cursor=pointer]:
+        - generic [ref=e188]:
+          - generic [ref=e189]: aidadmin
+          - generic [ref=e190]: admin@aqaryinvestment.com
+      - generic [ref=e191]:
+        - button [ref=e192] [cursor=pointer]
+        - button [ref=e195] [cursor=pointer]
+        - button [ref=e199] [cursor=pointer]
+        - button [ref=e205] [cursor=pointer]
+    - main [ref=e208]:
+      - generic [ref=e210]:
+        - navigation [ref=e211]:
+          - list [ref=e212]:
+            - listitem [ref=e213]:
+              - paragraph [ref=e214]: Services
+        - heading [level=3] [ref=e217]: Services
+      - generic [ref=e219]:
+        - generic [ref=e220]:
+          - paragraph [ref=e223]: Services
+          - button [ref=e225] [cursor=pointer]: Create Service
+        - generic [ref=e229]:
+          - generic [ref=e230]:
+            - generic [ref=e231]:
+              - generic [ref=e233]:
+                - textbox [ref=e234]:
+                  - /placeholder: Search
+                - group
+              - generic [ref=e235]:
+                - combobox [ref=e236] [cursor=pointer]: Status
+                - textbox
+                - group
+            - button [ref=e239] [cursor=pointer]: Export
+          - generic [ref=e243]:
+            - table [ref=e245]:
+              - rowgroup [ref=e246]:
+                - row [ref=e247]:
+                  - columnheader [ref=e248]:
+                    - generic [ref=e249]:
+                      - generic [ref=e250]: Title
+                      - button [ref=e253] [cursor=pointer]
+                  - columnheader [ref=e256]:
+                    - generic [ref=e257]:
+                      - generic [ref=e258]: Cover Image
+                      - button [ref=e261] [cursor=pointer]
+                  - columnheader [ref=e264]:
+                    - generic [ref=e265]:
+                      - generic [ref=e266]: Summary
+                      - button [ref=e269] [cursor=pointer]
+                  - columnheader [ref=e272]:
+                    - generic [ref=e273]:
+                      - generic [ref=e274]: Status
+                      - button [ref=e277] [cursor=pointer]
+                  - columnheader [ref=e280]:
+                    - generic [ref=e281]: Actions
+              - rowgroup [ref=e285]:
+                - row [ref=e286]:
+                  - cell [ref=e287]: Land and Real Estate Purchase and Sales
+                  - cell [ref=e288]
+                  - cell [ref=e291]: summary
+                  - cell [ref=e292]:
+                    - generic [ref=e293]: Available
+                  - cell [ref=e295]:
+                    - generic [ref=e296]:
+                      - button [ref=e298] [cursor=pointer]
+                      - button [ref=e303] [cursor=pointer]
+                      - button [ref=e309] [cursor=pointer]
+                      - button [ref=e312] [cursor=pointer]
+                - row [ref=e315]:
+                  - cell [ref=e316]: Real Estate Enterprises Investment
+                  - cell [ref=e317]
+                  - cell [ref=e320]: summary
+                  - cell [ref=e321]:
+                    - generic [ref=e322]: Available
+                  - cell [ref=e324]:
+                    - generic [ref=e325]:
+                      - button [ref=e327] [cursor=pointer]
+                      - button [ref=e332] [cursor=pointer]
+                      - button [ref=e338] [cursor=pointer]
+                      - button [ref=e341] [cursor=pointer]
+                - row [ref=e344]:
+                  - cell [ref=e345]: Housing Development Dev
+                  - cell [ref=e346]
+                  - cell [ref=e349]: Example Summary123
+                  - cell [ref=e350]:
+                    - generic [ref=e351]: Available
+                  - cell [ref=e353]:
+                    - generic [ref=e354]:
+                      - button [ref=e356] [cursor=pointer]
+                      - button [ref=e361] [cursor=pointer]
+                      - button [ref=e367] [cursor=pointer]
+                      - button [ref=e370] [cursor=pointer]
+                - row [ref=e373]:
+                  - cell [ref=e374]: Brokerage Service
+                  - cell [ref=e375]
+                  - cell [ref=e378]: VL6wOcEKq
+                  - cell [ref=e379]:
+                    - generic [ref=e380]: Available
+                  - cell [ref=e382]:
+                    - generic [ref=e383]:
+                      - button [ref=e385] [cursor=pointer]
+                      - button [ref=e390] [cursor=pointer]
+                      - button [ref=e396] [cursor=pointer]
+                      - button [ref=e399] [cursor=pointer]
+                - row [ref=e402]:
+                  - cell [ref=e403]: Commercial Broker
+                  - cell [ref=e404]
+                  - cell [ref=e407]: Sursum ambulo quibusdam aurum curtus viscus thalassinus solum volva ustilo. Synagoga aequus depromo dapifer praesentium vinculum.
+                  - cell [ref=e408]:
+                    - generic [ref=e409]: Available
+                  - cell [ref=e411]:
+                    - generic [ref=e412]:
+                      - button [ref=e414] [cursor=pointer]
+                      - button [ref=e419] [cursor=pointer]
+                      - button [ref=e425] [cursor=pointer]
+                      - button [ref=e428] [cursor=pointer]
+            - generic [ref=e434]:
+              - generic [ref=e435]:
+                - generic [ref=e436]: Rows per page
+                - generic [ref=e437]:
+                  - combobox [ref=e438] [cursor=pointer]: "5"
+                  - textbox: "5"
+              - generic [ref=e439]: 1-5 of 10
+              - generic [ref=e440]:
+                - generic [ref=e441]:
+                  - button [disabled]
+                - button [ref=e443] [cursor=pointer]
+  - dialog [ref=e447]:
+    - generic [ref=e448]:
+      - paragraph [ref=e449]: Create Service
+      - button [ref=e450] [cursor=pointer]
+    - generic [ref=e454]:
+      - generic [ref=e456]:
+        - paragraph [ref=e458]: Create Service
+        - generic [ref=e460]:
+          - generic [ref=e461]:
+            - text: Select Activity
+            - generic [ref=e462]: "*"
+          - generic [ref=e465]:
+            - combobox "Select activity" [invalid] [ref=e466]
+            - button "Open" [ref=e468] [cursor=pointer]
+            - group
+          - paragraph [ref=e471]: Activity is required.
+        - generic [ref=e473]:
+          - generic [ref=e474]:
+            - text: Title
+            - generic [ref=e475]: "*"
+          - generic [ref=e477]:
+            - textbox "Add the title" [ref=e478]: FlicMRS2A
+            - group
+          - paragraph [ref=e479]: Add the title
+        - generic [ref=e481]:
+          - generic [ref=e482]: Title AR
+          - generic [ref=e484]:
+            - textbox "Add the title ar" [ref=e485]: I5HNKVFfP
+            - group
+          - paragraph [ref=e486]: Add the title ar
+        - generic [ref=e488]:
+          - generic [ref=e489]:
+            - text: Summary
+            - generic [ref=e490]: "*"
+          - generic [ref=e492]:
+            - textbox "Add the summary" [ref=e493]: nhxMkQYmF
+            - group
+          - paragraph [ref=e494]: Add the summary
+        - generic [ref=e496]:
+          - generic [ref=e497]: Summary AR
+          - generic [ref=e499]:
+            - textbox "Add the summary" [ref=e500]: WK8pAJbEX
+            - group
+          - paragraph [ref=e501]: Add the summary
+        - generic [ref=e503]:
+          - generic [ref=e504]:
+            - text: Description
+            - generic [ref=e505]: "*"
+          - generic [ref=e506]:
+            - generic "Editor Toolbar" [ref=e507]:
+              - generic "Text heading" [ref=e509]:
+                - button "Normal" [ref=e510] [cursor=pointer]
+                - text: Normal Heading 1 Heading 2 Heading 3 Heading 4 (main) Heading 5 (sub) Heading 6
+              - generic [ref=e514]:
+                - button "Bold" [ref=e515] [cursor=pointer]
+                - button "Italic" [ref=e519] [cursor=pointer]
+                - button "Underline" [ref=e524] [cursor=pointer]
+                - button "Align Left" [ref=e528] [cursor=pointer]
+                - button "Align Center" [ref=e533] [cursor=pointer]
+                - button "Align Right" [ref=e538] [cursor=pointer]
+                - button "Justify" [ref=e543] [cursor=pointer]
+              - generic [ref=e548]:
+                - button "Insert Link" [ref=e549] [cursor=pointer]
+                - button "Insert Image" [ref=e554] [cursor=pointer]
+                - button "Import Word document" [ref=e559] [cursor=pointer]
+                - button "Insert Embed" [ref=e568] [cursor=pointer]
+              - generic [ref=e582]:
+                - button "Numbered List" [ref=e583] [cursor=pointer]
+                - button "Bullet List" [ref=e592] [cursor=pointer]
+                - button "Checklist" [ref=e600] [cursor=pointer]
+              - button "Split Section" [ref=e609] [cursor=pointer]
+              - button "Clear Formatting" [ref=e613] [cursor=pointer]
+            - generic [ref=e620]:
+              - paragraph [ref=e622]: JWViHLcNW
+              - text: "Visit URL: EditRemove"
+          - paragraph [ref=e623]: Enter description
+        - generic [ref=e625]:
+          - generic [ref=e626]: Description AR
+          - generic [ref=e627]:
+            - generic "Editor Toolbar" [ref=e628]:
+              - generic "Text heading" [ref=e630]:
+                - button "Normal" [ref=e631] [cursor=pointer]
+                - text: Normal Heading 1 Heading 2 Heading 3 Heading 4 (main) Heading 5 (sub) Heading 6
+              - generic [ref=e635]:
+                - button "Bold" [ref=e636] [cursor=pointer]
+                - button "Italic" [ref=e640] [cursor=pointer]
+                - button "Underline" [ref=e645] [cursor=pointer]
+                - button "Align Left" [ref=e649] [cursor=pointer]
+                - button "Align Center" [ref=e654] [cursor=pointer]
+                - button "Align Right" [pressed] [ref=e659] [cursor=pointer]
+                - button "Justify" [ref=e664] [cursor=pointer]
+              - generic [ref=e669]:
+                - button "Insert Link" [ref=e670] [cursor=pointer]
+                - button "Insert Image" [ref=e675] [cursor=pointer]
+                - button "Import Word document" [ref=e680] [cursor=pointer]
+                - button "Insert Embed" [ref=e689] [cursor=pointer]
+              - generic [ref=e703]:
+                - button "Numbered List" [ref=e704] [cursor=pointer]
+                - button "Bullet List" [ref=e713] [cursor=pointer]
+                - button "Checklist" [ref=e721] [cursor=pointer]
+              - button "Split Section" [ref=e730] [cursor=pointer]
+              - button "Clear Formatting" [ref=e734] [cursor=pointer]
+            - generic [ref=e741]:
+              - paragraph [ref=e743]: 41lo1Bs2k
+              - text: "Visit URL: EditRemove"
+          - paragraph [ref=e744]: Enter description AR
+        - generic [ref=e746]:
+          - generic [ref=e747]:
+            - text: Cover Image
+            - generic [ref=e748]: "*"
+          - button [ref=e749]:
+            - button "Drag & drop or click to upload PDF, JPG, PNG up to 2MB Choose File Drag & drop or click to upload PDF, JPG, PNG up to 2MB"
+            - generic [ref=e750] [cursor=pointer]:
+              - paragraph [ref=e754]: Drag & drop or click to upload
+              - paragraph [ref=e755]: PDF, JPG, PNG up to 2MB
+          - paragraph [ref=e756]: Cover image is required.
+        - generic [ref=e758]:
+          - generic [ref=e759]:
+            - text: Horizontal Cover Image
+            - generic [ref=e760]: "*"
+          - button [ref=e761]:
+            - button "Choose File"
+            - generic [ref=e762] [cursor=pointer]:
+              - paragraph [ref=e766]: Drag & drop or click to upload
+              - paragraph [ref=e767]: PDF, JPG, PNG up to 2MB
+          - paragraph [ref=e768]: Horizontal cover image is required.
+      - generic [ref=e769]:
+        - button "Cancel" [ref=e770] [cursor=pointer]
+        - button "submit" [ref=e771] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  1  | import {expect} from '@playwright/test'
+  2  | 
+  3  | export class Helpers {
+  4  |     constructor(page) {
+  5  |         this.page = page;
+  6  |     }
+  7  | 
+  8  | async uploadAttachment(page, locator){
+> 9  |     await locator.setInputFiles('C:\\Users\\umar\\Downloads\\Testpic.png');
+     |     ^ Error: ENOENT: no such file or directory, stat 'C:\Users\umar\Downloads\Testpic.png'
+  10 | }
+  11 | 
+  12 | /** Random future date as MM/DD/YYYY (matches MUI date placeholders). */
+  13 | randomCalendarDate(daysAheadMin = 1, daysAheadMax = 365) {
+  14 |     const daysAhead = Math.floor(Math.random() * (daysAheadMax - daysAheadMin + 1)) + daysAheadMin;
+  15 |     const date = new Date();
+  16 |     date.setDate(date.getDate() + daysAhead);
+  17 |     const mm = String(date.getMonth() + 1).padStart(2, '0');
+  18 |     const dd = String(date.getDate()).padStart(2, '0');
+  19 |     const yyyy = date.getFullYear();
+  20 |     return `${mm}/${dd}/${yyyy}`;
+  21 | }
+  22 | 
+  23 | /** Fill MUI DateField Month/Day/Year spinbuttons with an MM/DD/YYYY string. */
+  24 | async fillMuiCalendarDate(monthSpinbutton, dateStr) {
+  25 |     const [mm, dd, yyyy] = dateStr.split('/');
+  26 |     await monthSpinbutton.click();
+  27 |     // MUI auto-advances sections as digits are typed — do not use fill()
+  28 |     await this.page.keyboard.type(`${mm}${dd}${yyyy}`, { delay: 40 });
+  29 | }
+  30 | 
+  31 | async randomStringgenerator(page, locator){
+  32 |     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  33 |     let result = '';
+  34 |     for (let i = 0; i < 9; i++) {
+  35 |         result += characters.charAt(Math.floor(Math.random() * characters.length));
+  36 |     }
+  37 |     await locator.fill(result);
+  38 | }
+  39 | 
+  40 | async randomIntgenerator(page, locator){
+  41 |     // Keep amounts in a realistic range for coin top-ups
+  42 |     const result = Math.floor(Math.random() * 99999) + 1;
+  43 |     await locator.fill(result.toString());
+  44 | }
+  45 | 
+  46 | async selectfromDropdown(page, locator, value) {
+  47 |     await locator.click();
+  48 |     const escaped = value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  49 |     const option = page.getByRole('option', { name: new RegExp(escaped, 'i') }).first();
+  50 |     try {
+  51 |         await option.click({ timeout: 5000 });
+  52 |     } catch {
+  53 |         // Custom selects without role="option": filter by typing, then confirm (avoid ArrowDown — it can skip the only match)
+  54 |         await page.keyboard.type(value, { delay: 40 });
+  55 |         await page.keyboard.press('Enter');
+  56 |     }
+  57 | }
+  58 | 
+  59 | async mandatoryFieldValidation(page, btn, locator){
+  60 |     await btn.click();
+  61 |     await expect(locator).toHaveClass(/Mui-error/);
+  62 | }
+  63 | }
+```
