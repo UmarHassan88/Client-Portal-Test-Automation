@@ -28,7 +28,7 @@ jobs:
           npm list allure-playwright || true
 
       - name: Install Playwright Browsers
-        run: sudo -E env "PATH=$PATH" npx playwright install --with-deps
+        run: npx playwright install --with-deps
 
       - name: Run Playwright Tests
         continue-on-error: true
