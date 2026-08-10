@@ -3,7 +3,7 @@ import { expect } from "@playwright/test";
 export class Login {
   constructor(page) {
     this.page = page;
-    this.url = "http://192.168.1.203:3456/en/auth/login";
+    this.url = "https://dashboard.oneaqary.com/en/auth/login";
     
     this.usernameInput = page.getByRole("textbox", {
       name: "admin@aqaryint.com",
@@ -18,7 +18,7 @@ export class Login {
     await this.passwordInput.fill(password);
     await this.loginButton.click();
     await expect(this.page).toHaveURL(
-      "http://192.168.1.203:3456/en/dashboard/account/me",
+      "https://dashboard.oneaqary.com/en/dashboard/account/me",
     );
   }
 }

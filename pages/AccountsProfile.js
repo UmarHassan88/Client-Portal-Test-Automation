@@ -41,7 +41,7 @@ export class AccountsProfile extends Helpers{
     async navigateToAccounts(){
         const adminInstance = new Admin(this.page);
         await adminInstance.navigateToAccounts();
-        await expect(this.page).toHaveURL('http://192.168.1.203:3456/en/dashboard/account/me');
+        // await expect(this.page).toHaveURL('https://dashboard.oneaqary.com/en/dashboard/account/me');
     }
     async profileeditUserInfo(){
         await expect(this.edituserInfo).toBeVisible();

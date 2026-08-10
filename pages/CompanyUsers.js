@@ -80,7 +80,7 @@ export class CompanyUsers extends Helpers {
         await this.selectfromDropdown(this.page, this.gender, 'Male');
         await this.selectfromDropdown(this.page, this.nationality, 'United Arab');
         await this.experienceSince.pressSequentially('22/02/2026');
-        await this.selectfromDropdown(this.page, this.specialties, 'Test');
+        await this.selectfromDropdown(this.page, this.specialties, 'Sale Management');
         await this.selectfromDropdown(this.page, this.serviceArea, 'Dubai');
         await this.selectfromDropdown(this.page, this.languages, 'English');
         await this.abouten.fill('I am a doctor with 10 years of experience');
