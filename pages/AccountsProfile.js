@@ -58,9 +58,10 @@ export class AccountsProfile extends Helpers{
     async edituserProfile(){
         await expect(this.userProfile).toBeVisible();
         await this.userProfile.click();
-        // await this.changePhoto.setInputFiles('./media/image.png');
-        await this.changePhoto.setInputFiles('pages/media/Image.png');
-        await this.changeCover.setInputFiles('pages/media/Image.png');
+        await this.uploadAttachment(this.page, this.changePhoto);
+        await this.uploadAttachment(this.page, this.changeCover);
+        // await this.changePhoto.setInputFiles('pages/media/Image.png');
+        // await this.changeCover.setInputFiles('pages/media/Image.png');
         await this.saveButton.click();
         await expect(this.verifyprofileImage).toBeVisible();
         await expect(this.verifycoverImage).toBeVisible();

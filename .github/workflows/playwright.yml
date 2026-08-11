@@ -39,10 +39,7 @@ jobs:
         run: |
           npm run allure:report
 
-      - name: Zip Allure Report
-        if: always()
-        run: |
-          zip -r allure-report.zip allure-report    
+      
       - name: Generate Unit Smoke Test Email HTML
         if: always()
         run: |
@@ -76,4 +73,4 @@ jobs:
           cc: saif@aqaryint.com,laxmikant@aqaryint.com
           from: CI Notification <noreply@aqaryservices.com>
           html_body: file:///tmp/final.html
-          attachments: allure-report.zip
+          attachments: allure-report/index.html

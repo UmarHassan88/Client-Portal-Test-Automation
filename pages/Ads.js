@@ -25,6 +25,7 @@ export class Ads extends Helpers {
         this.redirectLink = page.getByRole('textbox', { name: 'Enter redirect link' });
         this.description = page.getByRole('textbox', { name: 'Enter description' });
         this.searchAd = page.getByRole('textbox', { name: 'Search' })
+        this.adAttachment = page.locator('input[type="file"]');
 
     }
 
@@ -41,8 +42,7 @@ export class Ads extends Helpers {
         await this.selectfromDropdown(this.page, this.language, 'En');
         await this.selectfromDropdown(this.page, this.direction, 'Horizontal');
         // await this.uploadAd.click();
-        await this.page.locator('input[type="file"]').setInputFiles('pages/media/Image.png');
-
+        await this.uploadAttachment(this.page, this.adAttachment);
         await this.showAd.click();
         await this.randomStringgenerator(this.page, this.redirectLink);
         await this.randomStringgenerator(this.page, this.description);

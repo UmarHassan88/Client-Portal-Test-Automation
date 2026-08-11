@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { AccountsProfile } from "../../../pages/AccountsProfile";
 
+
 test.describe("Test Automation for: Accounts -> Profile page", () => {
   let adminInstance;
 
