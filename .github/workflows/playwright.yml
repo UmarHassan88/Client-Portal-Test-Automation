@@ -40,37 +40,52 @@ jobs:
           npm run allure:report
 
       
-      - name: Generate Unit Smoke Test Email HTML
+      - name: Check Allure Report Size
         if: always()
         run: |
-          if [ "${{ job.status }}" = "success" ]; then
-            STATUS="🟢 SUCCESS"
-          else
-            STATUS="🔴 FAILED"
-          fi
+          echo "Allure report size:"
+          du -sh allure-report || true
+          echo "Allure index.html size:"
+          ls -lh allure-report/index.html || true
 
-          LOG_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          echo "Largest files in Allure report:"
+          find allure-report -type f -printf '%s %p\n' 2>/dev/null \
+           | sort -nr \
+          | head -20
+       
 
-          sed \
-            -e "s|{{ STATUS }}|${STATUS}|g" \
-            -e "s|{{ REPO_NAME }}|${{ github.repository }}|g" \
-            -e "s|{{ BRANCH }}|${{ github.ref_name }}|g" \
-            -e "s|{{ COMMIT }}|${{ github.sha }}|g" \
-            -e "s|{{ ACTOR }}|${{ github.actor }}|g" \
-            -e "s|{{ RUN_URL }}|${LOG_URL}|g" \
-            ci/email-templates.html > /tmp/final.html
 
-      - name: Send Playwright Test Report
-        if: always()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.sendgrid.net
-          server_port: 587
-          username: apikey
-          password: ${{ secrets.SENDGRID_API_KEY }}
-          subject: "🧪 Playwright Test Report - ${{ github.repository }}"
-          to: qa@aqaryint.com
-          cc: saif@aqaryint.com,laxmikant@aqaryint.com
-          from: CI Notification <noreply@aqaryservices.com>
-          html_body: file:///tmp/final.html
-          attachments: allure-report/index.html
+      # - name: Generate Unit Smoke Test Email HTML
+      #   if: always()
+      #   run: |
+      #     if [ "${{ job.status }}" = "success" ]; then
+      #       STATUS="🟢 SUCCESS"
+      #     else
+      #       STATUS="🔴 FAILED"
+      #     fi
+
+      #     LOG_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      #     sed \
+      #       -e "s|{{ STATUS }}|${STATUS}|g" \
+      #       -e "s|{{ REPO_NAME }}|${{ github.repository }}|g" \
+      #       -e "s|{{ BRANCH }}|${{ github.ref_name }}|g" \
+      #       -e "s|{{ COMMIT }}|${{ github.sha }}|g" \
+      #       -e "s|{{ ACTOR }}|${{ github.actor }}|g" \
+      #       -e "s|{{ RUN_URL }}|${LOG_URL}|g" \
+      #       ci/email-templates.html > /tmp/final.html
+
+      # - name: Send Playwright Test Report
+      #   if: always()
+      #   uses: dawidd6/action-send-mail@v3
+      #   with:
+      #     server_address: smtp.sendgrid.net
+      #     server_port: 587
+      #     username: apikey
+      #     password: ${{ secrets.SENDGRID_API_KEY }}
+      #     subject: "🧪 Playwright Test Report - ${{ github.repository }}"
+      #     to: qa@aqaryint.com
+      #     cc: saif@aqaryint.com,laxmikant@aqaryint.com
+      #     from: CI Notification <noreply@aqaryservices.com>
+      #     html_body: file:///tmp/final.html
+      #     attachments: allure-report/index.html
