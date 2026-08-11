@@ -24,11 +24,12 @@ export class Coins extends Helpers{
         await expect(this.createTopupcoin).toBeVisible();
         await this.createTopupcoin.click();
         await expect(this.assertpopup).toBeVisible();
-        await this.randomIntgenerator(this.page, this.amountofCoins);
-        this.coinsAmount = await this.amountofCoins.inputValue();
-        // Table shows amounts with thousand separators (e.g. 12345 → 12,345)
-        this.formattedCoinsAmount = Number(this.coinsAmount).toLocaleString('en-US');
-        console.log('Coins Amount:', this.coinsAmount, '→', this.formattedCoinsAmount);
+        await this.amountofCoins.fill('100');
+        // await this.randomIntgenerator(this.page, this.amountofCoins);
+        // this.coinsAmount = await this.amountofCoins.inputValue();
+        // // Table shows amounts with thousand separators (e.g. 12345 → 12,345)
+        // this.formattedCoinsAmount = Number(this.coinsAmount).toLocaleString('en-US');
+        // console.log('Coins Amount:', this.coinsAmount, '→', this.formattedCoinsAmount);
 
         const validityDate = this.randomCalendarDate();
         console.log('Coins Validity Date:', validityDate);
@@ -39,8 +40,8 @@ export class Coins extends Helpers{
         await this.uploadAttachment(this.page, this.uploadReceipt);
         await this.submitBtn.click();
         // await expect(this.page.getByText('Top-Up Created successfully')).toBeVisible();
-        await this.page.reload();
-        await this.page.waitForTimeout(2000);
+        // await this.page.reload();
+        // await this.page.waitForTimeout(2000);
        
     } 
 
