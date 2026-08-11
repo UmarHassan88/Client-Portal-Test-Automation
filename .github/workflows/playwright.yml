@@ -5,7 +5,10 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 04 * * *"
+
 
 jobs:
   test:
