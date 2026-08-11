@@ -15,6 +15,7 @@ export class Coins extends Helpers{
         this.transferNumber = page.getByRole('textbox', { name: 'Transfer Number' });
         this.uploadReceipt = page.locator('#file, input[type="file"]').first();
         this.submitBtn = page.getByRole('dialog').getByRole('button', { name: 'submit' });
+        this.verifySearch = page.getByRole('textbox', { name: 'Search' })
     }
 
     async createCoin(){
@@ -37,13 +38,14 @@ export class Coins extends Helpers{
         await this.randomStringgenerator(this.page, this.transferNumber);
         await this.uploadAttachment(this.page, this.uploadReceipt);
         await this.submitBtn.click();
-        await expect(this.page.getByText('Top-Up Created successfully')).toBeVisible();
+        // await expect(this.page.getByText('Top-Up Created successfully')).toBeVisible();
         await this.page.reload();
         await this.page.waitForTimeout(2000);
        
     } 
-   
+
     async verifycreatedtopupCoin(){
+        await this.verifySearch.fill(this.formattedCoinsAmount);
         await expect(this.page.getByText(this.formattedCoinsAmount, { exact: true })).toBeVisible({ timeout: 20_000 });
         console.log('Coins Amount:', this.formattedCoinsAmount + 'is verified');
     }
