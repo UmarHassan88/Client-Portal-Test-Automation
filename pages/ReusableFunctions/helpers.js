@@ -6,7 +6,7 @@ export class Helpers {
     }
 
 async uploadAttachment(page, locator){
-    await locator.setInputFiles('pages/media/Image.png');
+    await locator.setInputFiles('pages/media/image.png');
     console.log('Attachment Uploaded Successfully');
 }
 
