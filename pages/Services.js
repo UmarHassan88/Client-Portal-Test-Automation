@@ -1,7 +1,8 @@
 import { expect } from '@playwright/test';
 import { Helpers } from "./ReusableFunctions/helpers";
 import { Listing } from './Listing';
-
+import path from 'path';
+import { uploadAttachment } from './ReusableFunctions/helpers';
 export class Services extends Helpers {
     constructor(page){
         super(page);
@@ -38,6 +39,7 @@ export class Services extends Helpers {
         await this.randomStringgenerator(this.page, this.descriptionAR);
         await this.uploadAttachment(this.page, this.coverImage);
         await this.uploadAttachment(this.page, this.horcoverImage);
+
         await this.submitBtn.click();
 
     }

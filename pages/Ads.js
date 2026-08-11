@@ -41,13 +41,13 @@ export class Ads extends Helpers {
         await this.selectfromDropdown(this.page, this.language, 'En');
         await this.selectfromDropdown(this.page, this.direction, 'Horizontal');
         // await this.uploadAd.click();
-        await this.page.locator('input[type="file"]').setInputFiles('C:\\Users\\umar\\Downloads\\Testpic.png');
+        await this.page.locator('input[type="file"]').setInputFiles('pages/media/Image.png');
+
         await this.showAd.click();
         await this.randomStringgenerator(this.page, this.redirectLink);
         await this.randomStringgenerator(this.page, this.description);
         await this.submitBtn.click();
         await expect(this.page.getByText('created successfully')).toBeVisible();
-
         // await this.mandatoryFieldValidation(this.page, this.submitBtn, this.mandatoryPlatform); 
     }
 

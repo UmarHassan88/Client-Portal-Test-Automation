@@ -1,7 +1,7 @@
 import {expect} from '@playwright/test'
 import { Admin } from './Admin';
 import { Helpers } from './ReusableFunctions/helpers';
-
+import path from 'path';
 let email = 'admin@aqaryinvestment.com';
 let landlineNum = '1234567890';
 let currentPassword = 'HereWeGo@2026';
@@ -58,9 +58,9 @@ export class AccountsProfile extends Helpers{
     async edituserProfile(){
         await expect(this.userProfile).toBeVisible();
         await this.userProfile.click();
-        await this.changePhoto.setInputFiles('C:\\Users\\umar\\Downloads\\Testpic.png');
-        await this.uploadAttachment(this.page, this.changePhoto);
-        await this.uploadAttachment(this.page, this.changeCover);
+        // await this.changePhoto.setInputFiles('./media/image.png');
+        await this.changePhoto.setInputFiles('pages/media/Image.png');
+        await this.changeCover.setInputFiles('pages/media/Image.png');
         await this.saveButton.click();
         await expect(this.verifyprofileImage).toBeVisible();
         await expect(this.verifycoverImage).toBeVisible();

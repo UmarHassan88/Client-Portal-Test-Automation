@@ -6,7 +6,8 @@ export class Helpers {
     }
 
 async uploadAttachment(page, locator){
-    await locator.setInputFiles('C:\\Users\\umar\\Downloads\\Testpic.png');
+    await locator.setInputFiles('pages/media/Image.png');
+    console.log('Attachment Uploaded Successfully');
 }
 
 /** Random future date as MM/DD/YYYY (matches MUI date placeholders). */

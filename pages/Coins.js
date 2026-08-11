@@ -15,7 +15,6 @@ export class Coins extends Helpers{
         this.transferNumber = page.getByRole('textbox', { name: 'Transfer Number' });
         this.uploadReceipt = page.locator('#file, input[type="file"]').first();
         this.submitBtn = page.getByRole('dialog').getByRole('button', { name: 'submit' });
-
     }
 
     async createCoin(){
