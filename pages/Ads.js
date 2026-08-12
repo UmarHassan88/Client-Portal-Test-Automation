@@ -48,8 +48,7 @@ export class Ads extends Helpers {
         await this.randomStringgenerator(this.page, this.description);
         await this.submitBtn.click();
         await expect(this.page.getByText('created successfully')).toBeVisible();
-        // await this.page.waitForTimeout(1000);
-        await this.page.reload();
+        
         // await this.mandatoryFieldValidation(this.page, this.submitBtn, this.mandatoryPlatform); 
     }
 
