@@ -5,7 +5,10 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 04 * * *"
+
 
 jobs:
   test:
@@ -22,10 +25,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Allure CLI
-        run: |
-          npm install -D allure-commandline
-          npm list allure-playwright || true
+      # - name: Install Allure CLI
+      #   run: |
+      #     npm install -D allure-commandline
+      #     npm list allure-playwright || true
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
@@ -39,22 +42,6 @@ jobs:
         run: |
           npm run allure:report
 
-      
-      - name: Check Allure Report Size
-        if: always()
-        run: |
-          echo "Allure report size:"
-          du -sh allure-report || true
-          echo "Allure index.html size:"
-          ls -lh allure-report/index.html || true
-
-          echo "Largest files in Allure report:"
-          find allure-report -type f -printf '%s %p\n' 2>/dev/null \
-           | sort -nr \
-          | head -20
-       
-
-
       - name: Upload Allure Report
         if: always()
         uses: actions/upload-artifact@v4
@@ -62,3 +49,23 @@ jobs:
           name: allure-report-${{ github.run_number }}
           path: allure-report/
           retention-days: 7
+
+      - name: Send Mail
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.sendgrid.net
+          server_port: 587
+          username: apikey
+          password: ${{ secrets.SENDGRID_API_KEY }}
+          subject: "Playwright Test Report - Run #${{ github.run_number }} (${{ job.status }})"
+          to: qa@aqaryint.com
+          cc: saif@aqaryint.com,laxmikant@aqaryint.com
+          from: CI Notification <noreply@aqaryservices.com>
+          html_body: |
+            <p>Playwright test run <b>#${{ github.run_number }}</b> finished on <code>${{ github.ref_name }}</code>.</p>
+            <p><b>Status:</b> ${{ job.status }}</p>
+            <p><b>Triggered by:</b> ${{ github.actor }}</p>
+            <p><a href="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}">
+              View run & download Allure report artifact
+            </a></p>     
