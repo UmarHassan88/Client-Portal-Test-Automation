@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playwright Test Report</title>
+</head>
+
+<body style="margin:0;padding:0;background:#0B2545;font-family:Arial,Helvetica,sans-serif;color:#343434;">
+
+<table width="100%" cellpadding="0" cellspacing="0"
+       style="background:#0B2545;padding:40px 15px;">
+
+<tr>
+<td align="center">
+
+<table width="680" cellpadding="0" cellspacing="0"
+       style="max-width:680px;width:100%;background:#87CEEB;border-radius:14px;overflow:hidden;border:1px solid #5FB6DE;">
+
+  <!-- HEADER -->
+  <tr>
+    <td style="background:#0B2545;padding:32px 35px;">
+
+      <div style="font-size:13px;color:#DCEFFA;text-transform:uppercase;letter-spacing:1.5px;">
+        CI / CD Automation
+      </div>
+
+      <div style="font-size:27px;font-weight:bold;color:#ffffff;margin-top:10px;">
+        🎭 Playwright Test Report
+      </div>
+
+      <div style="font-size:14px;color:#DCEFFA;margin-top:8px;">
+        Automated test execution completed
+      </div>
+
+    </td>
+  </tr>
+
+
+  <!-- STATUS -->
+  <tr>
+    <td style="padding:30px 35px 10px;">
+
+      <table width="100%" cellpadding="0" cellspacing="0"
+             style="background:#B3E0F5;border:1px solid #5FB6DE;border-radius:11px;">
+
+        <tr>
+          <td style="padding:24px;">
+
+            <div style="font-size:12px;color:#1B4965;text-transform:uppercase;letter-spacing:1px;">
+              Test Run Status
+            </div>
+
+            <div style="font-size:28px;font-weight:bold;margin-top:9px;color:#0B2545;">
+              {{STATUS}}
+            </div>
+
+            <div style="font-size:14px;color:#1B4965;margin-top:6px;">
+              Run #{{RUN_NUMBER}}
+            </div>
+
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+
+
+  <!-- DETAILS -->
+  <tr>
+    <td style="padding:20px 35px;">
+
+      <div style="font-size:18px;font-weight:bold;color:#0B2545;margin-bottom:15px;">
+        Test Execution Details
+      </div>
+
+      <table width="100%" cellpadding="0" cellspacing="0"
+             style="border-collapse:collapse;">
+
+        <tr>
+          <td style="padding:13px 0;border-bottom:1px solid #9FD3EE;color:#1B4965;font-size:14px;">
+            Repository
+          </td>
+
+          <td align="right"
+              style="padding:13px 0;border-bottom:1px solid #9FD3EE;font-weight:bold;color:#0B2545;font-size:14px;">
+            {{REPOSITORY}}
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:13px 0;border-bottom:1px solid #9FD3EE;color:#1B4965;font-size:14px;">
+            Branch
+          </td>
+
+          <td align="right"
+              style="padding:13px 0;border-bottom:1px solid #9FD3EE;font-weight:bold;color:#0B2545;font-size:14px;">
+            {{BRANCH}}
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:13px 0;border-bottom:1px solid #9FD3EE;color:#1B4965;font-size:14px;">
+            Run Number
+          </td>
+
+          <td align="right"
+              style="padding:13px 0;border-bottom:1px solid #9FD3EE;font-weight:bold;color:#0B2545;font-size:14px;">
+            #{{RUN_NUMBER}}
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:13px 0;border-bottom:1px solid #9FD3EE;color:#1B4965;font-size:14px;">
+            Triggered By
+          </td>
+
+          <td align="right"
+              style="padding:13px 0;border-bottom:1px solid #9FD3EE;font-weight:bold;color:#0B2545;font-size:14px;">
+            {{ACTOR}}
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:13px 0;color:#1B4965;font-size:14px;">
+            Workflow
+          </td>
+
+          <td align="right"
+              style="padding:13px 0;font-weight:bold;color:#0B2545;font-size:14px;">
+            {{WORKFLOW}}
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+
+
+  <!-- BUTTON -->
+  <tr>
+    <td align="center" style="padding:10px 35px 35px;">
+
+      <a href="{{RUN_URL}}"
+         style="display:inline-block;
+                background:#0B2545;
+                color:#ffffff;
+                text-decoration:none;
+                font-size:15px;
+                font-weight:bold;
+                padding:14px 30px;
+                border-radius:8px;
+                border:1px solid #08213A;">
+
+        View GitHub Actions Run →
+
+      </a>
+
+      <div style="font-size:12px;color:#1B4965;margin-top:14px;">
+        View logs and test artifacts
+      </div>
+
+    </td>
+  </tr>
+
+
+  <!-- FOOTER -->
+  <tr>
+    <td style="background:#B3E0F5;padding:23px 35px;border-top:1px solid #5FB6DE;">
+
+      <div style="font-size:13px;color:#1B4965;text-align:center;line-height:1.6;">
+        This is an automated notification from
+        <strong style="color:#0B2545;">
+          GitHub Actions CI/CD Pipeline
+        </strong>.
+        <br>
+        Please do not reply to this email.
+      </div>
+
+      <div style="font-size:11px;color:#1B4965;text-align:center;margin-top:10px;">
+        {{REPOSITORY}} · Automated QA Notification
+      </div>
+
+    </td>
+  </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
