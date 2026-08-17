@@ -30,6 +30,11 @@ export class Banners extends Helpers {
         this.description = page.getByRole('textbox', { name: 'Enter description' });
         this.search = page.getByRole('textbox', { name: 'Search' });
 
+        //Edit Banner Locators
+        this.editBannerBtn = page.getByLabel('Edit')
+        this.deleteBannerBtn = page.getByLabel('Delete')
+        this.deleteConfirmationBtn = page.getByRole('button', { name: 'yes' })
+
     }
 
     async mandatoryFields() {
@@ -61,14 +66,32 @@ export class Banners extends Helpers {
         await this.submitBtn.click();
         console.log('Banner created successfully');
 
-        // await expect(this.page.getByText('Banner created successfully')).toBeVisible();
-
-
     }
 
     async verifyCreatedBanner() {
         await this.search.fill(this.bannertitleInput);
         await expect(this.page.getByRole('cell', { name: this.bannertitleInput }).getByRole('paragraph')).toBeVisible();
         console.log('Banner Verified successfully');
+    }
+
+    async editBanner(){
+        await this.editBannerBtn.click();
+        await this.randomStringgenerator(this.page, this.bannerTitle);
+        this.bannertitleInput = await this.bannerTitle.inputValue();
+        await this.selectfromDropdown(this.page, this.bannerRatio, '16:9');
+        await this.selectfromDropdown(this.page, this.platform, 'Mobile');
+        await this.selectfromDropdown(this.page, this.language, 'Ar');
+        await this.uploadAttachment(this.page, this.designAttachment);
+        await this.randomStringgenerator(this.page, this.redirectLink);
+        await this.randomStringgenerator(this.page, this.description);
+        await this.submitBtn.click();
+        console.log('Banner edited successfully');
+    }
+
+    async deleteBanner(){
+        await this.deleteBannerBtn.click();
+        await expect(this.deleteConfirmationBtn).toBeVisible();
+        await this.deleteConfirmationBtn.click();
+        console.log('Banner deleted successfully');
     }
 }
