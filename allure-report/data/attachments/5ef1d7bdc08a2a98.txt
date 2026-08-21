@@ -1,3 +1,0 @@
-Coins Amount: 68616 → 68,616
-Coins Validity Date: 08/07/2026
-Coins Amount: 68,616is verified
