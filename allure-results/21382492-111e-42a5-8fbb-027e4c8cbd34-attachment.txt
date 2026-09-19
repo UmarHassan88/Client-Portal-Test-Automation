@@ -1,2 +1,0 @@
-Coins Amount: 21543 → 21,543
-Coins Validity Date: 09/17/2026

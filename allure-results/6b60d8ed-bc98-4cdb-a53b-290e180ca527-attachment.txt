@@ -1,2 +1,0 @@
-Coins Amount: 63016 → 63,016
-Coins Validity Date: 06/23/2027

@@ -1,3 +1,0 @@
-Coins Amount: 96135 → 96,135
-Coins Validity Date: 11/03/2026
-Coins Amount: 96,135is verified

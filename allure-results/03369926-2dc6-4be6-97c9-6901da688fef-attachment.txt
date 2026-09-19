@@ -1,3 +1,0 @@
-Coins Amount: 44267 → 44,267
-Coins Validity Date: 11/01/2026
-Coins Amount: 44,267is verified
