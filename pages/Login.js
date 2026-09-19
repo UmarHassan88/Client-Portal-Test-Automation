@@ -17,6 +17,7 @@ export class Login {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
+    await this.page.waitForTimeout(1000);
     await expect(this.page).toHaveURL(
       "https://dashboard.oneaqary.com/en/dashboard/account/me",
     );

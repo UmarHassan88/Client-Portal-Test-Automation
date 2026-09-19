@@ -44,7 +44,7 @@ export class CompanyProfile extends Helpers {
 
     }
 
-    randomPhoneDigits(length = 10) {
+    randomPhoneDigits(length = 9) {
         return faker.string.numeric(length);
     }
 
